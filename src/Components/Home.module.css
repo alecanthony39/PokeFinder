@@ -1,0 +1,32 @@
+/* Home.module.css */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+  }
+  
+  .home-image {
+    width: 100px;
+    margin: 20px;
+  }
+  
+  .home-text {
+    font-family: "Tektur", cursive;
+    text-align: center;
+  }
+  
+  /* Media query for adjusting the font size at different screen widths */
+  @media screen and (max-width: 768px) {
+    .home-text {
+      font-size: 14px;
+      text-align: center;
+    }
+    .home-container{
+        height: 60%;
+    }
+  }
+  
+  /* Additional media queries can be added here for other styles */
+  
