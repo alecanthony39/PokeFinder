@@ -1,21 +1,20 @@
-.FindP-contain{
+.FindP-contain {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     flex-direction: column;
-    height: 60vh;
-}
-
-.title{
+    min-height: 60vh; 
+    position: static;
+  }
+  
+  .title {
     font-size: 65px;
     font-family: "Tektur", cursive;
     padding-bottom: 20px;
-}
-
-.form{
+  }
+  
+  .form {
     display: flex;
     flex-direction: column;
-
-    
-    
-}
+   
+  }

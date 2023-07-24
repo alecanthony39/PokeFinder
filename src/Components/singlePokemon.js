@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+
+import styles from "./singlePokemon.module.css";
 
 const SinglePokemon = ({ pokemonData }) => {
   const [selectedMoveName, setSelectedMoveName] = useState("");
   const [moveDataMap, setMoveDataMap] = useState({});
+  const [showStat, setShowStat] = useState(false);
 
   if (pokemonData && pokemonData.sprites) {
     const handleMoveSelection = (e) => {
@@ -24,6 +27,7 @@ const SinglePokemon = ({ pokemonData }) => {
       <>
         <img src={pokemonData.sprites.front_default} alt="Pokemon" />
         <p>Name: {pokemonData.species.name}</p>
+        <p>Ability: {pokemonData.abilities[0].ability.name}</p>
         <Form.Group controlId="moveSelect">
           <Form.Label>Select a Move:</Form.Label>
           <Form.Control
@@ -41,7 +45,52 @@ const SinglePokemon = ({ pokemonData }) => {
         </Form.Group>
         {selectedMoveName && moveDataMap[selectedMoveName] && (
           <div>
-            <p>Selected Move: {selectedMoveName}</p>
+            <p>{selectedMoveName}</p>
+          </div>
+        )}
+        <Button
+          onClick={() => {
+            setShowStat(!showStat);
+          }}
+          variant="primary"
+        >
+          Show Base Stats
+        </Button>{" "}
+        {showStat && (
+          <div className={styles["trading-card-container"]}>
+            <div className={styles["trading-card"]}>
+              <h3>{pokemonData.species.name}</h3>
+              {pokemonData.sprites.front_shiny && (
+                <img
+                  src={pokemonData.sprites.front_shiny}
+                  alt={pokemonData.name}
+                />
+              )}
+              <p>
+                {pokemonData.stats[0].stat.name}{" "}
+                <span>Base:{pokemonData.stats[0].base_stat}</span>
+              </p>
+              <p>
+                {pokemonData.stats[1].stat.name}{" "}
+                <span>Base:{pokemonData.stats[1].base_stat}</span>
+              </p>
+              <p>
+                {pokemonData.stats[2].stat.name}{" "}
+                <span>Base:{pokemonData.stats[2].base_stat}</span>
+              </p>
+              <p>
+                {pokemonData.stats[3].stat.name}{" "}
+                <span>Base:{pokemonData.stats[3].base_stat}</span>
+              </p>
+              <p>
+                {pokemonData.stats[4].stat.name}{" "}
+                <span>Base:{pokemonData.stats[4].base_stat}</span>
+              </p>
+              <p>
+                {pokemonData.stats[5].stat.name}{" "}
+                <span>Base:{pokemonData.stats[5].base_stat}</span>
+              </p>
+            </div>
           </div>
         )}
       </>

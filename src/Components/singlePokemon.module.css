@@ -1,0 +1,45 @@
+.trading-card {
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .trading-card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .trading-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .trading-card .stats {
+    margin-top: 8px;
+  }
+  
+  .trading-card p {
+    margin: 4px 0;
+  }
+  
+  .trading-card p span {
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  
+  
+.show-stats .trading-card-container {
+  height: auto; /* Set the height to 'auto' when stats are shown */
+}
+/* .trading-card-container {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+  } */
