@@ -5,12 +5,21 @@
     padding: 16px;
     width: 200px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
   }
   
   .trading-card h3 {
+    display: flex;
+    justify-content: space-between; /* Position the Id on the opposite side */
+    align-items: center; /* Vertically center the name and Id */
     margin: 0;
     font-size: 1.25rem;
     font-weight: bold;
+  }
+  
+  .trading-card h3 span {
+    font-size: 0.8rem; /* Optional: Adjust the font size of the Id */
   }
   
   .trading-card img {
@@ -36,10 +45,5 @@
   
   
 .show-stats .trading-card-container {
-  height: auto; /* Set the height to 'auto' when stats are shown */
+  height: auto; 
 }
-/* .trading-card-container {
-    height: 0;
-    overflow: hidden;
-    transition: height 0.3s ease;
-  } */

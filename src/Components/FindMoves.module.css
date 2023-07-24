@@ -1,0 +1,22 @@
+.FindM-contain {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    flex-direction: column;
+    min-height: 60vh; 
+    position: static;
+  }
+  
+  .title {
+    font-size: 65px;
+    font-family: "Tektur", cursive;
+    padding-bottom: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+   
+  }
+
+  

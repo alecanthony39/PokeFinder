@@ -59,7 +59,9 @@ const SinglePokemon = ({ pokemonData }) => {
         {showStat && (
           <div className={styles["trading-card-container"]}>
             <div className={styles["trading-card"]}>
-              <h3>{pokemonData.species.name}</h3>
+              <h3>
+                {pokemonData.species.name} <span>Id:{pokemonData.id}</span>
+              </h3>
               {pokemonData.sprites.front_shiny && (
                 <img
                   src={pokemonData.sprites.front_shiny}

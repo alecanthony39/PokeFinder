@@ -18,7 +18,7 @@ const getPokemon = async (name) => {
 
 const getPokemonMoves = async (name) => {
   try {
-    const response = await fetch(`${API_URL}/Moves/${name}`, {
+    const response = await fetch(`${API_URL}/move/${name}`, {
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,4 +32,20 @@ const getPokemonMoves = async (name) => {
   }
 };
 
-export { getPokemon };
+const getPokemonMovesById = async (id) => {
+  try {
+    const response = await fetch(`${API_URL}/move/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const result = await response.json();
+
+    return result;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export { getPokemon, getPokemonMoves, getPokemonMovesById };
