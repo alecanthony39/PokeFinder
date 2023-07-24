@@ -76,8 +76,17 @@ const FindMoves = () => {
           Submit
         </Button>
       </Form>
-
-      <p>{pokemonMoveData.name}</p>
+      {pokemonMoveData && (
+        <>
+          {" "}
+          <h3>Move Name:{pokemonMoveData.name}</h3>
+          <p>Move Type: {pokemonMoveData.type.name}</p>
+          <p>Move Damage Class:{pokemonMoveData.damage_class.name}</p>
+          <p>
+            Description:{pokemonMoveData.flavor_text_entries[1].flavor_text}
+          </p>
+        </>
+      )}
     </div>
   );
 };
