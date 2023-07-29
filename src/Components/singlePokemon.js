@@ -8,6 +8,16 @@ const SinglePokemon = ({ pokemonData }) => {
   const [moveDataMap, setMoveDataMap] = useState({});
   const [showStat, setShowStat] = useState(false);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   if (pokemonData && pokemonData.sprites) {
     const handleMoveSelection = (e) => {
       const selectedMoveName = e.target.value;
@@ -59,15 +69,28 @@ const SinglePokemon = ({ pokemonData }) => {
         {showStat && (
           <div className={styles["trading-card-container"]}>
             <div className={styles["trading-card"]}>
-              <h3>
-                {pokemonData.species.name} <span>Id:{pokemonData.id}</span>
+              <h3 className={styles["PokeName"]}>
+                {pokemonData.species.name}{" "}
+                <span>
+                  {pokemonData.types[0].type.name}{" "}
+                  {pokemonData.types[1] && (
+                    <span>& {pokemonData.types[1].type.name}</span>
+                  )}
+                </span>
               </h3>
-              {pokemonData.sprites.front_shiny && (
-                <img
-                  src={pokemonData.sprites.front_shiny}
-                  alt={pokemonData.name}
-                />
-              )}
+              {pokemonData.sprites.front_shiny &&
+                pokemonData.sprites.back_shiny && (
+                  <img
+                    src={
+                      isHovered
+                        ? pokemonData.sprites.back_shiny
+                        : pokemonData.sprites.front_shiny
+                    }
+                    alt={pokemonData.name}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                )}
               <p>
                 {pokemonData.stats[0].stat.name}{" "}
                 <span>Base:{pokemonData.stats[0].base_stat}</span>
