@@ -16,7 +16,7 @@ const Navbar = () => {
         <a href="/">Home</a>
         <a href="/find-items">Find Items</a>
         <a href="/find-moves">Find Moves</a>
-        <a href="/find-games">Find Games</a>
+
         <a href="/find-pokemon">Find Pokemon</a>
 
         <button className="nav-btn Nav-CLose" onClick={showNavBar}>

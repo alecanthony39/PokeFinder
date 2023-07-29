@@ -64,7 +64,7 @@ const SinglePokemon = ({ pokemonData }) => {
           }}
           variant="primary"
         >
-          Show Base Stats
+          Show Stat Card
         </Button>{" "}
         {showStat && (
           <div className={styles["trading-card-container"]}>

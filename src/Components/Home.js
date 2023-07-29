@@ -16,9 +16,8 @@ const Home = () => {
         className={styles["home-image"]}
       ></img>
       <p className={styles["home-text"]}>
-        We've Compiled all the items, moves, games, and of course Pokemon! To
-        make sure all this information is ready for you at the click of a
-        button!
+        We've Compiled all the items, moves, and of course Pokemon! To make sure
+        all this information is ready for you at the click of a button!
       </p>
       <p className={styles["home-text"]}>
         Whether you're getting tournament ready or just browsing to craft the

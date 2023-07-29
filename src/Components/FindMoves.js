@@ -18,13 +18,16 @@ const FindMoves = () => {
   const handleSecondInputChange = (event) => {
     setPokemonMoveId(event.target.value);
   };
+  const formatPokemonMoveName = (name) => {
+    return name.toLowerCase().replace(/\s+/g, "-");
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage(" ");
-    const Alec = pokemonMoveName.toLowerCase();
+    const formattedName = formatPokemonMoveName(pokemonMoveName);
 
-    const data = await getPokemonMoves(Alec);
+    const data = await getPokemonMoves(formattedName);
     if (data === undefined) {
       setErrorMessage(`${pokemonMoveName} Does Not Exist`);
     }
@@ -73,19 +76,19 @@ const FindMoves = () => {
         />
         <Form.Text>If you Don't Know the Name, Search By Number!</Form.Text>
         <Button type="submit" variant="primary">
-          Submit
+          Search
         </Button>
       </Form>
       {pokemonMoveData && (
-        <>
+        <div className={styles["Move-container"]}>
           {" "}
-          <h3>Move Name:{pokemonMoveData.name}</h3>
-          <p>Move Type: {pokemonMoveData.type.name}</p>
-          <p>Move Damage Class:{pokemonMoveData.damage_class.name}</p>
+          <h3>Name:{pokemonMoveData.name}</h3>
+          <p>Type: {pokemonMoveData.type.name}</p>
+          <p>Damage Class:{pokemonMoveData.damage_class.name}</p>
           <p>
             Description:{pokemonMoveData.flavor_text_entries[1].flavor_text}
           </p>
-        </>
+        </div>
       )}
     </div>
   );
