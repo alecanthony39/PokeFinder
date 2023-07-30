@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 import Home from "./Components/Home";
 import FindItems from "./Components/FindItems";
 import FindMoves from "./Components/FindMoves";
@@ -9,9 +14,10 @@ import Navbar from "./Components/Navbar";
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <Navbar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/find-items" element={<FindItems />} />
@@ -20,7 +26,7 @@ const App = () => {
           <Route path="/find-pokemon" element={<FindPokemon />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 
