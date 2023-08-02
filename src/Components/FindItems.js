@@ -13,7 +13,11 @@ const FindItems = () => {
   };
 
   const formatPokemonItemName = (name) => {
-    return name.toLowerCase().replace(/\s+/g, "-");
+    if (name) {
+      return name.toLowerCase().replace(/\s+/g, "-");
+    } else {
+      setErrorMessage("");
+    }
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
