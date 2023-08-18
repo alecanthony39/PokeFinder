@@ -91,7 +91,7 @@ const FindMoves = () => {
           Search
         </Button>
       </Form>
-      {pokemonMoveData && (
+      {!pokemonMoveData ? "NO MOVE DATA" : (
         <div className={styles["Move-container"]}>
           <h3>Name: {pokemonMoveData.name}</h3>
           {pokemonMoveData.type && <p>Type: {pokemonMoveData.type.name}</p>}
