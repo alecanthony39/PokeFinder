@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { getPokemonMoves, getPokemonMovesById } from "../Api";
+import { defaultPokemon, getPokemonMoves, getPokemonMovesById } from "../Api";
 import styles from "./FindMoves.module.css";
+
+export const formatPokemonMoveName = (name) => {
+    if (name) {
+      return name.toLowerCase().replace(/\s+/g, "-");
+    } else {
+      return null;
+    }
+  };
 
 const FindMoves = () => {
   const [pokemonMoveName, setPokemonMoveName] = useState("");
-  const [pokemonMoveData, setPokemonMoveData] = useState({});
+  const [pokemonMoveData, setPokemonMoveData] = useState(defaultPokemon);
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -20,18 +28,14 @@ const FindMoves = () => {
     setPokemonMoveId(event.target.value);
   };
 
-  const formatPokemonMoveName = (name) => {
-    if (name) {
-      return name.toLowerCase().replace(/\s+/g, "-");
-    } else {
-      setErrorMessage("");
-    }
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setErrorMessage(" ");
     const formattedName = formatPokemonMoveName(pokemonMoveName);
+
+    if(!formattedName) {
+      setErrorMessage("");
+    }
 
     const data = await getPokemonMoves(formattedName);
     if (data === undefined) {
@@ -91,7 +95,7 @@ const FindMoves = () => {
           Search
         </Button>
       </Form>
-      {!pokemonMoveData ? "NO MOVE DATA" : (
+      {pokemonMoveData && (
         <div className={styles["Move-container"]}>
           <h3>Name: {pokemonMoveData.name}</h3>
           {pokemonMoveData.type && <p>Type: {pokemonMoveData.type.name}</p>}
