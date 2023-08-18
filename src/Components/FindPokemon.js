@@ -2,12 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { getPokemon } from "../Api";
+import { getPokemon, defaultPokemon } from "../Api";
 import styles from "./FindPokemon.module.css";
 import SinglePokemon from "./singlePokemon";
 const FindPokemon = () => {
   const [pokemonName, setPokemonName] = useState("");
-  const [pokemonData, setPokemonData] = useState(null);
+  const [pokemonData, setPokemonData] = useState(defaultPokemon);
   const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (event) => {
     setPokemonName(event.target.value);
@@ -41,7 +41,7 @@ const FindPokemon = () => {
           Search
         </Button>
       </Form>
-      {pokemonData && pokemonData.sprites && (
+      {pokemonData && (
         <>
           <SinglePokemon pokemonData={pokemonData} />
         </>

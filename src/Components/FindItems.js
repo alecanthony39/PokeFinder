@@ -3,10 +3,10 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import styles from "./FindItems.module.css";
-import { getPokemonItem } from "../Api";
+import { defaultPokemon, getPokemonItem } from "../Api";
 const FindItems = () => {
   const [pokemonItems, setPokemonItems] = useState("");
-  const [pokemonData, setPokemonData] = useState(null);
+  const [pokemonData, setPokemonData] = useState(defaultPokemon);
   const [errorMessage, setErrorMessage] = useState("");
   const handleChange = (event) => {
     setPokemonItems(event.target.value);

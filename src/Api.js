@@ -1,5 +1,7 @@
 const API_URL = "https://pokeapi.co/api/v2";
 
+export const defaultPokemon = null;
+
 const getPokemon = async (name) => {
   try {
     const response = await fetch(`${API_URL}/pokemon/${name}`, {
